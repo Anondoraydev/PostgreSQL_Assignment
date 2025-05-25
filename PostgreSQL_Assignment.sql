@@ -137,3 +137,10 @@ FROM rangers r
 GROUP BY
     r.name
 ORDER BY r.name;
+
+-- Problem 5
+SELECT common_name
+FROM species s
+    LEFT JOIN sightings sg ON s.species_Id = sg.species_id
+WHERE
+    sg.species_id IS NULL;
