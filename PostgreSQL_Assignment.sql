@@ -145,7 +145,7 @@ FROM species s
 WHERE
     sg.species_id IS NULL;
 
--- Problem 5
+-- Problem 6
 
 SELECT species.common_name, sightings.sighting_time, rangers.name
 FROM
@@ -155,9 +155,30 @@ FROM
 ORDER BY sightings.sighting_time DESC
 LIMIT 2;
 
---Problem 5
+--Problem 7
 UPDATE species
 SET
     conservation_status = 'Historic'
 WHERE
     discovery_date < '1800-01-01';
+
+--Problem 8
+
+SELECT
+    sighting_id,
+    CASE
+        WHEN EXTRACT(
+            HOUR
+            FROM sighting_time
+        ) < 12 THEN 'morning'
+        WHEN EXTRACT(
+            HOUR
+            FROM sighting_time
+        ) >= 12
+        AND EXTRACT(
+            HOUR
+            FROM sighting_time
+        ) < 17 THEN 'Afternoon'
+        ELSE 'Evening'
+    END AS time_of_day
+FROM sightings;
