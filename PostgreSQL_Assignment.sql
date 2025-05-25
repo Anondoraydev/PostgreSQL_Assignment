@@ -163,7 +163,6 @@ WHERE
     discovery_date < '1800-01-01';
 
 --Problem 8
-
 SELECT
     sighting_id,
     CASE
@@ -182,3 +181,14 @@ SELECT
         ELSE 'Evening'
     END AS time_of_day
 FROM sightings;
+
+--Problem 9
+DELETE FROM rangers
+WHERE
+    ranger_id NOT IN (
+        SELECT DISTINCT
+            ranger_id
+        FROM sightings
+        WHERE
+            ranger_id IS NOT NULL
+    );
