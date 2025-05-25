@@ -191,3 +191,5 @@ WHERE
         WHERE
             ranger_id IS NOT NULL
     );
+
+DROP TABLE sightings;
