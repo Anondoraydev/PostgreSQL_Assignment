@@ -75,7 +75,7 @@ VALUES (
         'Endangered'
     );
 
--- Sightings
+-- Sightings Table
 INSERT INTO
     sightings (
         sighting_id,
@@ -145,7 +145,7 @@ FROM species s
 WHERE
     sg.species_id IS NULL;
 
--- Problem 6 
+-- Problem 6
 SELECT species.common_name, sightings.sighting_time, rangers.name
 FROM
     sightings
