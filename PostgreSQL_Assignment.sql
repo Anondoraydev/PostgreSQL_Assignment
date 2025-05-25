@@ -144,3 +144,13 @@ FROM species s
     LEFT JOIN sightings sg ON s.species_Id = sg.species_id
 WHERE
     sg.species_id IS NULL;
+
+-- Problem 5
+
+SELECT species.common_name, sightings.sighting_time, rangers.name
+FROM
+    sightings
+    JOIN species ON sightings.species_id = species.species_id
+    JOIN rangers ON sightings.ranger_id = rangers.ranger_id
+ORDER BY sightings.sighting_time DESC
+LIMIT 2;
