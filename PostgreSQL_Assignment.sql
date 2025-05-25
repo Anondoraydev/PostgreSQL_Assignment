@@ -20,7 +20,7 @@ CREATE TABLE sightings (
     location VARCHAR(100) NOT NULL,
     sighting_time TIMESTAMP NOT NULL,
     notes TEXT
-); 
+);
 
 -- Rangers Table
 INSERT INTO
@@ -123,10 +123,11 @@ INSERT INTO
     rangers (name, region)
 VALUES ('Derek Fox', 'Coastal Plains');
 
-
 -- Problem 2
 SELECT COUNT(DISTINCT species_id) AS unique_species_count
 FROM sightings;
 
-
 -- Problem 3
+SELECT * FROM sightings WHERE location LIKE '%Pass%';
+ 
+ -- Problem 3
